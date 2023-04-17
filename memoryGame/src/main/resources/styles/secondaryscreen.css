@@ -1,0 +1,24 @@
+/* 
+    Created on : 06-abr-2023, 20:13:00
+    Author     : Jumaikel CM
+*/
+
+@font-face {
+    src: url('/fonts/Champions-Bold.ttf');
+}
+.root{
+    -fx-background-image: url('/images/backgrounds/background4.jpg');
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-font-family: "Champions";
+}
+
+.button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-family: "Champions";
+}

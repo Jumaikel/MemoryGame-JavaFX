@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.SecondaryScreenController">
+    <stylesheets>
+        <URL value="@/styles/secondaryscreen.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="548.0" layoutY="376.0" mnemonicParsing="false" text="Continuar">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Label layoutX="572.0" layoutY="67.0" prefHeight="59.0" prefWidth="157.0" text="Dificultad">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField layoutX="116.0" layoutY="287.0" prefHeight="42.0" prefWidth="320.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="844.0" />
+      <TextField layoutX="860.0" layoutY="281.0" prefHeight="42.0" prefWidth="320.0" AnchorPane.leftAnchor="844.0" AnchorPane.rightAnchor="116.0" />
+      <Label layoutX="207.0" layoutY="205.0" text="Jugador 1">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="929.0" layoutY="206.0" text="Jugador 2">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

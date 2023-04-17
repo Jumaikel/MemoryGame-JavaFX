@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import java.net.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,66 +10,83 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="mainScreenPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
+<AnchorPane id="AnchorPane" fx:id="mainScreenPane" maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" stylesheets="@../../../styles/mainScreen.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
    <children>
-      <Button fx:id="btnPlay" layoutX="579.0" layoutY="131.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="262.0" text="JUGAR" AnchorPane.leftAnchor="525.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="67.0">
+      <Button fx:id="btnPlay" alignment="CENTER" layoutX="14.0" layoutY="95.0" maxHeight="86.0" maxWidth="245.0" mnemonicParsing="false" onMouseClicked="#showSecundaryScreen" prefHeight="86.0" prefWidth="245.0" style="-fx-border-color: white;" text="JUGAR" textOverrun="CLIP" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1021.0" AnchorPane.topAnchor="95.0">
          <font>
-            <Font size="48.0" />
-         </font></Button>
-      <MenuButton fx:id="menuNumberPlayers" layoutX="442.0" layoutY="278.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="532.0" text="CANTIDAD DE JUGADORES" AnchorPane.leftAnchor="392.0" AnchorPane.rightAnchor="392.0" AnchorPane.topAnchor="313.0">
+            <Font size="40.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect></Button>
+      <MenuButton fx:id="menuNumberPlayers" layoutX="14.0" layoutY="206.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="206.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="51.0" prefWidth="245.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="#JUGADORES" textOverrun="CLIP" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1021.0" AnchorPane.topAnchor="206.0">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Jugador vs PC" />
+          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="1 Jugador" />
+            <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="2 jugadores" />
         </items>
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
       </MenuButton>
-      <MenuButton fx:id="menuDifficulty" layoutX="560.0" layoutY="401.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="300.0" text="DIFICULTAD" AnchorPane.leftAnchor="506.0" AnchorPane.rightAnchor="506.0" AnchorPane.topAnchor="413.0">
+      <MenuButton fx:id="menuDifficulty" layoutX="14.0" layoutY="286.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="190.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="51.0" prefWidth="245.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="DIFICULTAD" textOverrun="CLIP" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1021.0" AnchorPane.topAnchor="286.0">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Fácil" />
+          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Intermedio" />
+            <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Difícil" />
         </items>
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
       </MenuButton>
-      <Button fx:id="btnHelp" layoutX="619.0" layoutY="506.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="180.0" text="AYUDA" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="513.0">
+      <Button fx:id="btnHelp" layoutX="14.0" layoutY="365.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="245.0" mnemonicParsing="false" onMouseClicked="#showHelpScreen" prefHeight="51.0" prefWidth="245.0" style="-fx-border-color: white;" text="AYUDA" textOverrun="CLIP" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1021.0" AnchorPane.topAnchor="365.0">
          <font>
-            <Font size="36.0" />
-         </font></Button>
-      <Button fx:id="btnAbout" layoutX="592.0" layoutY="613.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="239.0" text="ACERCA DE" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="550.0" AnchorPane.topAnchor="613.0">
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect></Button>
+      <Button fx:id="btnAbout" layoutX="14.0" layoutY="445.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="245.0" mnemonicParsing="false" onMouseClicked="#showAboutScreen" prefHeight="51.0" prefWidth="245.0" style="-fx-border-color: white;" text="ACERCA DE" textOverrun="CLIP" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1021.0" AnchorPane.topAnchor="445.0">
          <font>
-            <Font size="36.0" />
-         </font></Button>
-      <CheckBox fx:id="checkReviewMode" layoutX="27.0" layoutY="703.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="226.0" text="Modo revisión">
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect></Button>
+      <CheckBox fx:id="checkReviewMode" layoutX="13.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="123.0" style="-fx-text-fill: gray;" text="Modo revisión" AnchorPane.topAnchor="0.0">
          <font>
-            <Font size="20.0" />
+            <Font size="14.0" />
          </font></CheckBox>
-      <CheckBox fx:id="checkWildcards" layoutX="33.0" layoutY="334.0" mnemonicParsing="false" text="Comodines" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="29.0">
+      <CheckBox fx:id="checkWildcards" layoutX="1101.0" layoutY="659.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="179.0" style="-fx-text-fill: gray;" text="Comodines" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="659.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="checkConsecutiveCouples" layoutX="12.0" layoutY="659.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="438.0" style="-fx-text-fill: gray;" text="Punto Extra-Parejas Consecutivas" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="830.0" AnchorPane.topAnchor="659.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="checkPunishmentForFailure" layoutX="458.0" layoutY="659.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="411.0" style="-fx-text-fill: gray;" text="Castigo-Medio Punto por Fallo" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="458.0" AnchorPane.rightAnchor="411.0" AnchorPane.topAnchor="659.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="checkTrios" layoutX="876.0" layoutY="659.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="225.0" style="-fx-text-fill: gray;" text="Trios de Cartas" textOverrun="CENTER_ELLIPSIS" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="876.0" AnchorPane.rightAnchor="179.0" AnchorPane.topAnchor="659.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></CheckBox>
+      <Label fx:id="labelGameModes" layoutX="14.0" layoutY="603.0" prefHeight="37.0" prefWidth="217.0" text="MODOS DE JUEGO:" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="603.0">
          <font>
             <Font size="25.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="checkConsecutiveCouples" layoutX="32.0" layoutY="177.0" mnemonicParsing="false" text="Punto Extra-Parejas Consecutivas" AnchorPane.bottomAnchor="570.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="927.0" AnchorPane.topAnchor="162.0">
-         <font>
-            <Font size="25.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="checkPunishmentForFailure" layoutX="34.0" layoutY="229.0" mnemonicParsing="false" text="Castigo-Medio Punto por Fallo" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="29.0">
-         <font>
-            <Font size="25.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="checkTrios" layoutX="29.0" layoutY="285.0" mnemonicParsing="false" text="Trios de Cartas" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="29.0">
-         <font>
-            <Font size="25.0" />
-         </font></CheckBox>
-      <Label fx:id="labelGameModes" layoutX="107.0" layoutY="79.0" prefHeight="31.0" prefWidth="270.0" text="Modos de Juego" AnchorPane.bottomAnchor="640.0" AnchorPane.topAnchor="67.0">
-         <font>
-            <Font size="36.0" />
          </font></Label>
-      <ListView fx:id="scoreList" layoutX="1019.0" layoutY="147.0" prefHeight="563.0" prefWidth="308.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="1029.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="162.0" />
-      <Label layoutX="1113.0" layoutY="30.0" prefHeight="61.0" prefWidth="145.0" text="Puntajes" AnchorPane.bottomAnchor="640.0" AnchorPane.topAnchor="67.0">
+      <Label layoutX="966.0" prefHeight="51.0" prefWidth="123.0" text="PUNTAJES" AnchorPane.bottomAnchor="669.0" AnchorPane.rightAnchor="191.0" AnchorPane.topAnchor="0.0">
          <font>
-            <Font size="36.0" />
+            <Font size="25.0" />
          </font></Label>
+      <ListView layoutX="889.0" layoutY="39.0" prefHeight="537.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

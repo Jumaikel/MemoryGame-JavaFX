@@ -1,5 +1,7 @@
 package Controller;
 
+import com.mycompany.memorygame.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -42,8 +45,6 @@ public class MainScreenController implements Initializable {
     private CheckBox checkTrios;
     @FXML
     private Label labelGameModes;
-    @FXML
-    private ListView<?> scoreList;
 
     /**
      * Initializes the controller class.
@@ -52,5 +53,20 @@ public class MainScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void showSecundaryScreen(MouseEvent event) throws IOException {
+        App.setRoot("secondaryScreen");
+    }
+
+    @FXML
+    private void showHelpScreen(MouseEvent event) throws IOException {
+        App.setRoot("helpScreen");
+    }
+
+    @FXML
+    private void showAboutScreen(MouseEvent event) throws IOException {
+        App.setRoot("aboutScreen");
+    }
     
 }
