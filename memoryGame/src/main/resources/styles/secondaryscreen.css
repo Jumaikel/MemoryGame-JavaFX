@@ -7,7 +7,7 @@
     src: url('/fonts/Champions-Bold.ttf');
 }
 .root{
-    -fx-background-image: url('/images/backgrounds/background4.jpg');
+    -fx-background-image: url('/images/backgrounds/background1.jpg');
     -fx-background-position: center center;
     -fx-background-size: cover;
 }
