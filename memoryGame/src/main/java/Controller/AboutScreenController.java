@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package Controller;
 
 import com.mycompany.memorygame.App;
@@ -33,7 +30,7 @@ public class AboutScreenController implements Initializable {
 
     @FXML
     private void backScreen(MouseEvent event) throws IOException {
-        App.setRoot("MainScreen");
+        App.setRoot("mainScreen");
     }
     
 }

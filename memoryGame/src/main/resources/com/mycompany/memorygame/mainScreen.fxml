@@ -21,29 +21,23 @@
          </effect></Button>
       <MenuButton fx:id="menuNumberPlayers" layoutX="250.0" layoutY="289.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="206.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="51.0" prefWidth="245.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="#JUGADORES" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0">
         <items>
-          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Jugador vs PC" />
-          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="1 Jugador" />
-            <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="2 jugadores" />
+          <MenuItem fx:id="opMenuPlayerPC" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Jugador vs PC" />
+          <MenuItem fx:id="opMenuOnePlayer" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="1 Jugador" />
+            <MenuItem fx:id="opMenuTwoPlayers" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="2 jugadores" />
         </items>
          <font>
             <Font size="24.0" />
          </font>
-         <effect>
-            <ColorAdjust brightness="1.0" />
-         </effect>
       </MenuButton>
       <MenuButton fx:id="menuDifficulty" layoutX="250.0" layoutY="366.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="190.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="51.0" prefWidth="245.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="DIFICULTAD" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0" AnchorPane.topAnchor="366.0">
         <items>
-          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Fácil" />
-          <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Intermedio" />
-            <MenuItem mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Difícil" />
+          <MenuItem fx:id="OpMenuEasy" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Fácil" />
+          <MenuItem fx:id="opMenuIntermediate" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Intermedio" />
+            <MenuItem fx:id="opMenuHard" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Difícil" />
         </items>
          <font>
             <Font size="24.0" />
          </font>
-         <effect>
-            <ColorAdjust brightness="1.0" />
-         </effect>
       </MenuButton>
       <Button fx:id="btnHelp" layoutX="250.0" layoutY="457.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="245.0" mnemonicParsing="false" onMouseClicked="#showHelpScreen" prefHeight="51.0" prefWidth="245.0" style="-fx-border-color: white;" text="AYUDA" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0" AnchorPane.topAnchor="457.0">
          <font>

@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package Controller;
+
 
 import Model.Player;
 import com.mycompany.memorygame.App;
@@ -42,11 +40,11 @@ public class SecondaryScreenController implements Initializable {
     }    
 
     private void showGameScreen() throws IOException {
-        App.setRoot("gameScreen");
+        App.setRoot("game");
     }
 
     @FXML
-    private void getNames(MouseEvent event) throws IOException {
+        void getNames(MouseEvent event) throws IOException {
         playerName1 = txtfPlayerName1.getText();
         playerName2 = txtfPlayerName2.getText();
         Player player1 = new Player(playerName1);
@@ -55,10 +53,9 @@ public class SecondaryScreenController implements Initializable {
         if(player1.getName().equals(player2.getName()) || player1.getName() == "" || player2.getName() == ""){
             showEqualNamesError();
         }
-        else{
-            showGameScreen();
+        else{  
+            showGameScreen(); 
         }
-        
     }
     
     private void showEqualNamesError(){
@@ -68,5 +65,5 @@ public class SecondaryScreenController implements Initializable {
         alert.setContentText("\"Los Nombres deben ser diferentes y contener minimo un caracter\"");
         alert.showAndWait();
     }
-    
+ 
 }
