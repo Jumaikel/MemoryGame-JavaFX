@@ -7,18 +7,16 @@
     src: url('/fonts/Champions-Bold.ttf');
 }
 .root{
-    -fx-background-image: url('/images/backgrounds/background3.jpg');
+    -fx-background-image: url('/images/backgrounds/background5.jpg');
     -fx-background-position: center center;
     -fx-background-size: cover;
 }
 
 .label{
-    -fx-text-fill: white;
     -fx-font-family: "Champions";
 }
 
 .button{
     -fx-background-color: transparent;
-    -fx-text-fill: white;
     -fx-font-family: "Champions";
 }

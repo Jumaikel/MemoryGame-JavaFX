@@ -9,8 +9,26 @@ public class Player {
     private String name;
     private int score;
 
-    public Player(String name) {
+    public Player(int id, String name, int score) {
+        this.id = id;
         this.name = name;
+        this.score = score;
+    }
+
+     public Player(String name) {
+        this.name = name;
+    }
+
+    public Player() {
+        
+    }
+     
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public void setName(String name) {
@@ -19,6 +37,14 @@ public class Player {
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getScore() {
+        return score;
     }
     
     

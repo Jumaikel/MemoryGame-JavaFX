@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -13,28 +15,58 @@
         <URL value="@/styles/secondaryscreen.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btnContinue" layoutX="581.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#getNames" text="Continuar">
+      <Button fx:id="btnContinue" alignment="CENTER" contentDisplay="CENTER" layoutX="559.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#getNames" prefHeight="77.0" prefWidth="253.0" style="-fx-background-color: transparent;" text="CONTINUAR" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
+         <effect>
+            <Reflection />
+         </effect>
       </Button>
-      <Label layoutX="605.0" layoutY="68.0" prefHeight="59.0" prefWidth="157.0" text="Dificultad">
+      <TextField fx:id="txtfPlayerName1" layoutX="483.0" layoutY="281.0" prefHeight="42.0" prefWidth="406.0" style="-fx-border-color: #FF00EA;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></TextField>
+      <TextField fx:id="txtfPlayerName2" layoutX="860.0" layoutY="281.0" prefHeight="42.0" prefWidth="406.0" style="-fx-border-color: #ff00e5;" visible="false">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></TextField>
+      <Label fx:id="txtPlayer1" layoutX="605.0" layoutY="205.0" prefHeight="53.0" prefWidth="157.0" text="Jugador 1" textFill="WHITE" AnchorPane.leftAnchor="605.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="txtfPlayerName1" layoutX="116.0" layoutY="287.0" prefHeight="42.0" prefWidth="320.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="844.0" />
-      <TextField fx:id="txtfPlayerName2" layoutX="860.0" layoutY="281.0" prefHeight="42.0" prefWidth="320.0" AnchorPane.leftAnchor="844.0" AnchorPane.rightAnchor="116.0" />
-      <Label layoutX="241.0" layoutY="205.0" text="Jugador 1">
+      <Label fx:id="txtPlayer2" layoutX="969.0" layoutY="205.0" text="Jugador 2" visible="false">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="969.0" layoutY="205.0" text="Jugador 2">
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBack" style="-fx-border-color: #FF00EA;" text="Retroceder" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <MenuButton alignment="CENTER_RIGHT" contentDisplay="TEXT_ONLY" layoutX="483.0" layoutY="40.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: transparent;" text="DIFICULTAD" textFill="#ff00e5" AnchorPane.leftAnchor="468.0" AnchorPane.topAnchor="40.0">
+        <items>
+          <MenuItem fx:id="miEasy" mnemonicParsing="false" onAction="#setDifficultyEasy" style="-fx-background-color: #ff00e5;" text="FACIL" />
+            <SeparatorMenuItem mnemonicParsing="false" style="-fx-background-color: #ff00e5;" />
+          <MenuItem fx:id="miNormal" mnemonicParsing="false" onAction="#setDifficultyNormal" style="-fx-background-color: #ff00e5;" text="NORMAL" />
+            <SeparatorMenuItem mnemonicParsing="false" style="-fx-background-color: #ff00e5;" />
+            <MenuItem fx:id="miHard" mnemonicParsing="false" onAction="#setDifficultyHard" style="-fx-background-color: #ff00e5;" text="DIFICIL" />
+        </items>
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
-      </Label>
-      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Retroceder" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="12.0" />
+      </MenuButton>
+      <MenuButton alignment="CENTER_RIGHT" contentDisplay="TEXT_ONLY" layoutX="686.0" layoutY="40.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="197.0" style="-fx-background-color: transparent;" text="JUGADORES" textFill="#ff00e5" AnchorPane.rightAnchor="468.0" AnchorPane.topAnchor="40.0">
+         <items>
+            <MenuItem fx:id="miOnePlayer" mnemonicParsing="false" onAction="#setOnePlayer" style="-fx-background-color: #ff00e5;" text="UN JUGADOR" />
+            <SeparatorMenuItem mnemonicParsing="false" style="-fx-background-color: #ff00e5;" />
+            <MenuItem fx:id="miTwoPlayers" mnemonicParsing="false" onAction="#setTwoPlayers" style="-fx-background-color: #ff00e5;" text="DOS JUGADORES" />
+            <SeparatorMenuItem mnemonicParsing="false" style="-fx-background-color: #ff00e5;" />
+            <MenuItem fx:id="miPlayerVsPC" mnemonicParsing="false" onAction="#setPlayerVsPC" style="-fx-background-color: #ff00e5;" text="JUGADOR VS PC" />
+         </items>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </MenuButton>
+      <CheckBox fx:id="cbReviewMode" layoutX="13.0" layoutY="689.0" mnemonicParsing="false" onAction="#activateReviewMode" text="Modo Revisión" textFill="WHITE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" />
+      <CheckBox fx:id="cbWildcards" layoutX="1053.0" layoutY="113.0" mnemonicParsing="false" onAction="#activateWildcards" text="Comodines" textFill="#fcfcfc" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
    </children>
 </AnchorPane>

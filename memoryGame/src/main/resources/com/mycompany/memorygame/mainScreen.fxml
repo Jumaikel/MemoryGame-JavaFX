@@ -12,75 +12,58 @@
 
 <AnchorPane id="AnchorPane" fx:id="mainScreenPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" style="-fx-background-color: black;" stylesheets="@../../../styles/mainScreen.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainScreenController">
    <children>
-      <Button fx:id="btnPlay" alignment="CENTER" layoutX="250.0" layoutY="158.0" maxHeight="86.0" maxWidth="245.0" mnemonicParsing="false" onMouseClicked="#showSecundaryScreen" prefHeight="86.0" prefWidth="245.0" style="-fx-border-color: white;" text="JUGAR" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0" AnchorPane.topAnchor="158.0">
+      <Button fx:id="btnPlay" alignment="CENTER" layoutX="863.0" layoutY="80.0" maxHeight="210.0" maxWidth="436.0" mnemonicParsing="false" onMouseClicked="#showSecondaryScreen" opacity="0.74" prefHeight="210.0" prefWidth="436.0" text="JUGAR" textOverrun="CLIP">
          <font>
-            <Font size="40.0" />
+            <Font size="96.0" />
          </font>
-         <effect>
-            <ColorAdjust brightness="1.0" />
-         </effect></Button>
-      <MenuButton fx:id="menuNumberPlayers" layoutX="250.0" layoutY="289.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="206.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="51.0" prefWidth="245.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="#JUGADORES" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0">
-        <items>
-          <MenuItem fx:id="opMenuPlayerPC" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Jugador vs PC" />
-          <MenuItem fx:id="opMenuOnePlayer" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="1 Jugador" />
-            <MenuItem fx:id="opMenuTwoPlayers" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="2 jugadores" />
-        </items>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.44285714285714284">
+               <stops>
+                  <Stop color="#ff00c8" />
+                  <Stop color="#0012ff" offset="0.9923371647509578" />
+                  <Stop color="#0012ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <Button fx:id="btnHelp" alignment="CENTER" layoutX="972.0" layoutY="310.0" maxHeight="126.0" maxWidth="331.0" minHeight="51.0" minWidth="166.0" mnemonicParsing="false" onMouseClicked="#showHelpScreen" opacity="0.74" prefHeight="91.0" prefWidth="220.0" text="AYUDA" textOverrun="CLIP">
          <font>
-            <Font size="24.0" />
+            <Font size="36.0" />
          </font>
-      </MenuButton>
-      <MenuButton fx:id="menuDifficulty" layoutX="250.0" layoutY="366.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="190.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="51.0" prefWidth="245.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="DIFICULTAD" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0" AnchorPane.topAnchor="366.0">
-        <items>
-          <MenuItem fx:id="OpMenuEasy" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Fácil" />
-          <MenuItem fx:id="opMenuIntermediate" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Intermedio" />
-            <MenuItem fx:id="opMenuHard" mnemonicParsing="false" style="-fx-background-color: gray; -fx-font-family: '/fonts/Champions-Bold.ttf';" text="Difícil" />
-        </items>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.44285714285714284">
+               <stops>
+                  <Stop color="#ff00c8" />
+                  <Stop color="#0012ff" offset="0.9923371647509578" />
+                  <Stop color="#0012ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <Button fx:id="btnAbout" alignment="CENTER" layoutX="962.0" layoutY="253.0" maxHeight="74.0" maxWidth="245.0" minHeight="37.0" minWidth="120.0" mnemonicParsing="false" onMouseClicked="#showAboutScreen" opacity="0.74" prefHeight="74.0" prefWidth="241.0" text="ACERCA DE" textOverrun="CLIP">
          <font>
-            <Font size="24.0" />
+            <Font size="36.0" />
          </font>
-      </MenuButton>
-      <Button fx:id="btnHelp" layoutX="250.0" layoutY="457.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="245.0" mnemonicParsing="false" onMouseClicked="#showHelpScreen" prefHeight="51.0" prefWidth="245.0" style="-fx-border-color: white;" text="AYUDA" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0" AnchorPane.topAnchor="457.0">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.44285714285714284">
+               <stops>
+                  <Stop color="#ff00c8" />
+                  <Stop color="#0012ff" offset="0.9923371647509578" />
+                  <Stop color="#0012ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1020.0" layoutY="395.0" prefHeight="35.0" prefWidth="125.0" text="PUNTAJES" textAlignment="CENTER" AnchorPane.leftAnchor="1020.0" AnchorPane.topAnchor="395.0">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
-         <effect>
-            <ColorAdjust brightness="1.0" />
-         </effect></Button>
-      <Button fx:id="btnAbout" layoutX="250.0" layoutY="534.0" maxHeight="51.0" maxWidth="245.0" minHeight="51.0" minWidth="245.0" mnemonicParsing="false" onMouseClicked="#showAboutScreen" prefHeight="51.0" prefWidth="245.0" style="-fx-border-color: white;" text="ACERCA DE" textOverrun="CLIP" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="785.0" AnchorPane.topAnchor="534.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <effect>
-            <ColorAdjust brightness="1.0" />
-         </effect></Button>
-      <CheckBox fx:id="checkReviewMode" layoutX="12.0" layoutY="683.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="92.0" style="-fx-text-fill: gray;" text="Modo revisión" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="683.0">
-         <font>
-            <Font size="10.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="checkWildcards" layoutX="1187.0" layoutY="4.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="179.0" style="-fx-text-fill: gray;" text="Comodines" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="checkConsecutiveCouples" layoutX="155.0" layoutY="12.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="387.0" style="-fx-text-fill: gray;" text="Punto Extra por Parejas Consecutivas" AnchorPane.topAnchor="12.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="checkPunishmentForFailure" layoutX="581.0" layoutY="12.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="360.0" style="-fx-text-fill: gray;" text="Castigo de Medio Punto por Fallo" AnchorPane.topAnchor="12.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></CheckBox>
-      <CheckBox fx:id="checkTrios" layoutX="971.0" layoutY="12.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="37.0" prefWidth="179.0" style="-fx-text-fill: gray;" text="Trios de Cartas" textOverrun="CENTER_ELLIPSIS" AnchorPane.topAnchor="12.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></CheckBox>
-      <Label fx:id="labelGameModes" layoutX="14.0" layoutY="12.0" prefHeight="37.0" prefWidth="133.0" text="MODOS DE JUEGO:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0">
-         <font>
-            <Font size="15.0" />
-         </font></Label>
-      <Label layoutX="67.0" layoutY="158.0" prefHeight="51.0" prefWidth="117.0" text="PUNTAJES" textAlignment="CENTER" AnchorPane.topAnchor="158.0">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <ListView layoutX="25.0" layoutY="209.0" opacity="0.02" prefHeight="378.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.topAnchor="209.0" />
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.44285714285714284">
+               <stops>
+                  <Stop color="#ff00c8" />
+                  <Stop color="#0012ff" offset="0.9923371647509578" />
+                  <Stop color="#0012ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <ListView layoutX="1004.0" layoutY="430.0" opacity="0.1" prefHeight="210.0" prefWidth="157.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="80.0" />
    </children>
 </AnchorPane>
