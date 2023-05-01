@@ -4,8 +4,11 @@ package Controller;
 import Model.Card;
 import Model.Player;
 import Model.AppContext;
+import com.mycompany.memorygame.App;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -14,9 +17,13 @@ import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -37,6 +44,10 @@ public class GameController implements Initializable {
     private Label txtPlayerScore;  
     @FXML
     private GridPane table;
+    @FXML
+    private Label txtPlayer1;
+    @FXML
+    private Button btnBack;
 
     /**
      * Initializes the controller class.
@@ -69,7 +80,7 @@ public class GameController implements Initializable {
         int cont;
         for(int i=0;i<aRows;i++){
             for(int j=0;j<aColumns;j++){
-                tableGame[i][j] = randomNumber.nextInt(anAmmountCards);
+                tableGame[i][j] = randomNumber.nextInt(anAmmountCards)+1;
              
                 do{
                     cont = 0;
@@ -80,16 +91,16 @@ public class GameController implements Initializable {
                             }
                         }
                     }
-                    if(cont >= 3){
-                        tableGame[i][j] = randomNumber.nextInt(anAmmountCards);
+                    if(cont > 2){
+                        tableGame[i][j] = randomNumber.nextInt(anAmmountCards)+1;
                     }
                 }
-                while(cont >= 3);
-                //System.out.print(tableGame[i][j] + "|"); 
+                while(cont > 2);
+                System.out.print(tableGame[i][j] + "|"); 
             }
-             //System.out.println(""); 
+             System.out.println(""); 
         }
-        //System.out.println(""); 
+        System.out.println(""); 
         loadCards(aRows, aColumns);
     }
     
@@ -129,7 +140,17 @@ public class GameController implements Initializable {
             for(int j=0;j<aColumns;j++){
                 cardFrontView[i][j] = new ImageView();
                 cardBackView[i][j] = new ImageView();
-                imageList[i][j] = new Image("images/cards/"+tableGame[i][j]+".png");
+                if((boolean)AppContext.getInstance().get("wildcards") == true){
+                    if(tableGame[i][j] == 1){
+                        imageList[i][j] = new Image("images/cards/wildcard.png");
+                    }
+                    else{
+                        imageList[i][j] = new Image("images/cards/"+tableGame[i][j]+".png");
+                    }
+                }else{
+                    imageList[i][j] = new Image("images/cards/"+tableGame[i][j]+".png");
+                }
+                
                 cardsList[i][j] = new Card(tableGame[i][j],imageList[i][j],backImage);
                 cardFrontView[i][j].setImage(cardsList[i][j].getFront());
                 cardBackView[i][j].setImage(cardsList[i][j].getBack());
@@ -137,12 +158,36 @@ public class GameController implements Initializable {
                 cardBackView[i][j].setFitWidth(cardSize);
                 cardFrontView[i][j].setFitHeight(cardSize);
                 cardFrontView[i][j].setFitWidth(cardSize);
+                
                 cardFrontView[i][j].setVisible(false);
                 
+                if((boolean)AppContext.getInstance().get("reviewMode") == true){
+                    cardBackView[i][j].setVisible(false);
+                    cardFrontView[i][j].setVisible(true);}
+
                 table.add(cardFrontView[i][j], i, j);
                 table.add(cardBackView[i][j], i, j);
             }
         }
+    }
+
+    @FXML
+    private void goBack(MouseEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("PRECAUCIÓN");
+        alert.setContentText("\"Se perdera el progreso del juego\" \nDesea continuar:");
+        ButtonType btnYes = new ButtonType("Si");
+        ButtonType btnNo = new ButtonType("No");
+        alert.getButtonTypes().setAll(btnYes,btnNo);
+        Optional<ButtonType> option = alert.showAndWait();
+        if(option.get() == btnYes){
+            App.setRoot("mainScreen");
+        }
+        else{
+            alert.close();
+        }
+        
     }
    
 }

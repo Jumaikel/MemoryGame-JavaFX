@@ -10,12 +10,12 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" style="-fx-background-color: black;" stylesheets="@../../../styles/gamescreen.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
    <children>
-      <Label fx:id="txtPlayer" layoutX="201.0" layoutY="50.0" prefHeight="70.0" prefWidth="176.0" text="Jugador" AnchorPane.leftAnchor="201.0" AnchorPane.topAnchor="50.0">
+      <Label fx:id="txtPlayer" layoutX="200.0" layoutY="105.0" prefHeight="70.0" prefWidth="176.0" text="Jugador" AnchorPane.topAnchor="105.0">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label fx:id="txtPlayerScore" layoutX="201.0" layoutY="125.0" prefHeight="70.0" prefWidth="28.0" text="0" AnchorPane.leftAnchor="201.0" AnchorPane.topAnchor="125.0">
+      <Label fx:id="txtPlayerScore" layoutX="200.0" layoutY="180.0" prefHeight="70.0" prefWidth="28.0" text="0" AnchorPane.topAnchor="180.0">
          <font>
             <Font size="48.0" />
          </font>
@@ -28,15 +28,16 @@
             <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Label layoutX="36.0" layoutY="30.0" prefHeight="70.0" prefWidth="139.0" text="Jugador:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+      <Label layoutX="49.0" layoutY="105.0" prefHeight="70.0" prefWidth="139.0" text="Jugador:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="105.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="txtPlayer1" layoutX="50.0" layoutY="125.0" prefHeight="70.0" prefWidth="129.0" text="Puntaje:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="125.0">
+      <Label fx:id="txtPlayer1" layoutX="49.0" layoutY="180.0" prefHeight="70.0" prefWidth="129.0" text="Puntaje:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="180.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
+      <Button fx:id="btnBack" layoutX="50.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#goBack" style="-fx-border-color: white;" text="Menu Principal" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" />
    </children>
 </AnchorPane>

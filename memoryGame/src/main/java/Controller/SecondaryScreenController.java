@@ -193,15 +193,27 @@ public class SecondaryScreenController implements Initializable {
        AppContext.getInstance().set("diffuculty",newGame.getDifficulty());
        AppContext.getInstance().set("playerName1",player1.getName());
        AppContext.getInstance().set("playerName2",player2.getName());
+       AppContext.getInstance().set("reviewMode",newGame.isReviewMode());
+       AppContext.getInstance().set("wildcards",newGame.isWildcards());
     }
 
     @FXML
     private void activateReviewMode(ActionEvent event) {
-        
+        if(cbReviewMode.isSelected()){
+            newGame.setReviewMode(true);
+        }
+        else{
+            newGame.setReviewMode(false);
+        }
     }
 
     @FXML
     private void activateWildcards(ActionEvent event) {
-        
+        if(cbWildcards.isSelected()){
+            newGame.setWildcards(true);
+        }
+        else{
+            newGame.setWildcards(false);
+        }
     }
 }
