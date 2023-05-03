@@ -81,12 +81,17 @@ public class SecondaryScreenController implements Initializable {
 
     @FXML
     void getNames(MouseEvent event) throws IOException {
-        playerName1 = txtfPlayerName1.getText();
-        playerName2 = txtfPlayerName2.getText();
+        if(newGame.getPlayersAmount() == 2){
+            playerName1 = txtfPlayerName1.getText();
+            playerName2 = txtfPlayerName2.getText();
        
-        player1.setName(playerName1);
-        player2.setName(playerName2);
-        
+            player1.setName(playerName1);
+            player2.setName(playerName2);
+        }
+        else{
+            playerName1 = txtfPlayerName1.getText();  
+            player1.setName(playerName1);
+        }
         checkDataEntry();
     }
     
@@ -166,12 +171,16 @@ public class SecondaryScreenController implements Initializable {
     private void setTwoPlayers(ActionEvent event) {
         newGame.setPlayersAmount(2);
         initializeTextFields();
+        
     }
 
     @FXML
     private void setPlayerVsPC(ActionEvent event) {
-        newGame.setPlayersAmount(1);
+        
+        newGame.setPlayersAmount(3);
+        player2.setName("PC");
         initializeTextFields();
+        
     }
     
     void initializeTextFields(){
@@ -190,9 +199,10 @@ public class SecondaryScreenController implements Initializable {
     }
     
     void setGameProperties(){
+       AppContext.getInstance().set("player2", player2);
+       AppContext.getInstance().set("player1", player1);
+
        AppContext.getInstance().set("diffuculty",newGame.getDifficulty());
-       AppContext.getInstance().set("playerName1",player1.getName());
-       AppContext.getInstance().set("playerName2",player2.getName());
        AppContext.getInstance().set("reviewMode",newGame.isReviewMode());
        AppContext.getInstance().set("wildcards",newGame.isWildcards());
     }

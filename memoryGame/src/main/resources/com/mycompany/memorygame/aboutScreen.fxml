@@ -12,6 +12,6 @@
         <URL value="@/styles/aboutscreen.css" />
     </stylesheets>
    <children>
-      <Button fx:id="back" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backScreen" style="-fx-border-color: #FF00EA;" text="Retroceder" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <Button fx:id="back" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backScreen" style="-fx-border-color: #FF00EA; -fx-background-radius: 30 30 30 30; -fx-border-radius: 30 30 30 30;" text="Retroceder" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>

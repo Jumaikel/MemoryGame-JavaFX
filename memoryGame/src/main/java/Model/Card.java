@@ -5,39 +5,31 @@ package Model;
  * @author jumac
  */
 
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
-public class Card {
-    private int id;
-    private boolean cardSide;
+public class Card extends ImageView {
+    private int value;
     private Image front;
     private Image back;
+    private boolean flipped;
+    private boolean foundCouple;
 
     public Card() {
         
     }
-    
-    public Card(Image front) {
-        this.front = front;
-    }
-    
-    public Card(int id, Image front, Image back) {
-        this.id = id;
-        this.front = front;
-        this.back = back;
+
+    public Card(int value, Image backImage, Image frontImage) {
+        this.value = value;
+        this.back = backImage;
+        this.front = frontImage;
+        this.flipped = false;
+        setImage(back);
+        this.foundCouple = false;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setCardSide(boolean cardSide) {
-        this.cardSide = cardSide;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public void setFront(Image front) {
@@ -48,12 +40,12 @@ public class Card {
         this.back = back;
     }
 
-    public int getId() {
-        return id;
+    public void setFlipped(boolean flipped) {
+        this.flipped = flipped;
     }
 
-    public boolean isCardSide() {
-        return cardSide;
+    public void setFoundCouple(boolean foundCouple) {
+        this.foundCouple = foundCouple;
     }
 
     public Image getFront() {
@@ -63,7 +55,42 @@ public class Card {
     public Image getBack() {
         return back;
     }
+
+    public boolean isFlipped() {
+        return flipped;
+    }
+
+    public boolean isFoundCouple() {
+        return foundCouple;
+    }
+
+    public void flip() {
+        if (flipped) {
+            setImage(back);
+        } else {
+            setImage(front);
+        }
+        flipped = !flipped;
+    }
     
-    
-    
+
+    public static boolean isSMOOTH_DEFAULT() {
+        return SMOOTH_DEFAULT;
+    }
+
+    public static double getBASELINE_OFFSET_SAME_AS_HEIGHT() {
+        return BASELINE_OFFSET_SAME_AS_HEIGHT;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" + "front=" + front + ", back=" + back + ", flipped=" + flipped + '}';
+    }
+
+    public int getValue() {
+        return value; 
+    }
+
+ 
 }
+

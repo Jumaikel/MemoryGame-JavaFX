@@ -5,11 +5,12 @@ package Model;
  * @author jumac
  */
 public class Player {
+    
     private int id;
     private String name;
-    private int score;
+    private float score;
 
-    public Player(int id, String name, int score) {
+    public Player(int id, String name, float score) {
         this.id = id;
         this.name = name;
         this.score = score;
@@ -27,7 +28,7 @@ public class Player {
         this.id = id;
     }
 
-    public void setScore(int score) {
+    public void setScore(float score) {
         this.score = score;
     }
 
@@ -43,10 +44,16 @@ public class Player {
         return id;
     }
 
-    public int getScore() {
+    public float getScore() {
         return score;
     }
     
+    public void incrementarPuntos(){
+        score += 2;
+    }
     
+    public void decreasePoints(){
+        score -= 0.5;
+    }
     
 }
