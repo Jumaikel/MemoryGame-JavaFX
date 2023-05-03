@@ -25,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller class
@@ -38,7 +39,8 @@ public class GameController implements Initializable {
     private Random randomNumber;
     Player player = (Player) AppContext.getInstance().get("player1");
     Player player2 = (Player) AppContext.getInstance().get("player2");
-   
+    Card[] flippedCards = new Card[2];
+    int couplesCounter = 0;
     @FXML
     private Label txtPlayer;
     @FXML
@@ -112,6 +114,7 @@ public class GameController implements Initializable {
     }
     
     void loadCards(int aRows, int aColumns) throws IOException {
+        boolean wildCards = false;
         int cardSize = 170;
         if (aRows == 6){
             cardSize = 110;
@@ -162,8 +165,9 @@ public class GameController implements Initializable {
                 cardsList[i][j].setFitWidth(cardSize);
                 
       
-                if((boolean)AppContext.getInstance().get("reviewMode") == true){
+                if((boolean)AppContext.getInstance().get("reviewMode")){
                     cardsList[i][j].flip(); 
+                    
                 }
                 
                 
@@ -171,7 +175,8 @@ public class GameController implements Initializable {
                 
             }
         }
-        flipCards(aRows, aColumns);
+        wildCards = (boolean)AppContext.getInstance().get("wildcards");
+        flipCards(aRows, aColumns, wildCards);
     }
 
     @FXML
@@ -193,68 +198,83 @@ public class GameController implements Initializable {
         }
         
     }
-    private Card[] flippedCards = new Card[2];
-    int couplesCounter = 0;
-    void flipCards(int aRows, int aColumns) throws IOException{
+    
+    void flipCards(int aRows, int aColumns, boolean useWildcards) throws IOException {
         
-        for(int i=0;i<aRows;i++){
-            for(int j=0;j<aColumns;j++){
-                Card card = cardsList[i][j];
-                card.setOnMouseClicked(event ->{
-                    if (flippedCards[0] == null) {
-                        flippedCards[0] = card;
-                        if(!flippedCards[0].isFlipped()){
-                            card.flip();
-                        }
-                    } else if (flippedCards[1] == null) {
-                        flippedCards[1] = card;
-                        if(!flippedCards[1].isFlipped()){
-                            card.flip();
-                        }
-                        if (flippedCards[0].getValue() != flippedCards[1].getValue() ) {
-                            
-                            if(!flippedCards[0].isFoundCouple() && !flippedCards[1].isFoundCouple()){
-                            new java.util.Timer().schedule( 
-                                new java.util.TimerTask() {
-                                    @Override
+    for (int i = 0; i < aRows; i++) {
+        for (int j = 0; j < aColumns; j++) {
+            Card card = cardsList[i][j];
+            card.setOnMouseClicked(event -> {
+                if (flippedCards[0] == null) {
+                    flippedCards[0] = card;
+                    if (!flippedCards[0].isFlipped()) {
+                        card.flip();
+                    }
+                     if (useWildcards && flippedCards[0].getValue() == 1) {
+                           flippedCards[1] = getOtherCardWithSameValue(card);
+                           if (!flippedCards[1].isFlipped()) {
+                            getOtherCardWithSameValue(card).flip(); 
+                            }
+                             
+                    }  
+                } else if (flippedCards[1] == null) {
+                   flippedCards[1] = card;
+                    if (!flippedCards[1].isFlipped()) {
+                        card.flip();
+                    }
+                }
+ 
+                    if (flippedCards[0].getValue() != flippedCards[1].getValue()) {
+                        if (!flippedCards[0].isFoundCouple() && !flippedCards[1].isFoundCouple()) {
+                            new java.util.Timer().schedule(new java.util.TimerTask() {
+                                @Override
                                 public void run() {
+                                    if(!(boolean)AppContext.getInstance().get("reviewMode")){
                                     flippedCards[0].flip();
                                     flippedCards[1].flip();
+                                    }
                                     flippedCards[0] = null;
                                     flippedCards[1] = null;
-                                    }
-                                }, 
-                            1000
-                            );
-                            
+                                }
+                            }, 1000);
                             player.decreasePoints();
-                            }
-                            
-                        } else {
-                            if(!flippedCards[0].isFoundCouple() && !flippedCards[1].isFoundCouple()){
-                                player.incrementarPuntos();
-                                couplesCounter ++;
-                                flippedCards[0].setFoundCouple(true);
-                                flippedCards[1].setFoundCouple(true);      
-                            }
-                            flippedCards[0] = null;
-                            flippedCards[1] = null; 
                         }
-                       setPlayersScore(); 
+                    } else {
+                        if (!flippedCards[0].isFoundCouple() && !flippedCards[1].isFoundCouple()) {
+                            player.incrementarPuntos();
+                            couplesCounter++;
+                            flippedCards[0].setFoundCouple(true);
+                            flippedCards[1].setFoundCouple(true);
+                        }
+                        flippedCards[0] = null;
+                        flippedCards[1] = null;
                     }
-                    if(couplesCounter == (aRows*aColumns)/2){
-                        try {
-                            MessageWinner();
-                        } catch (IOException ex) {
-                            
-                        }
-                }
-                });  
+                    setPlayersScore();
                 
+                if (couplesCounter == (aRows * aColumns) / 2) {
+                    try {
+                        MessageWinner();
+                    } catch (IOException ex) {
+                    }
+                }
+            });
+        }
+    }
+    }
+
+    private Card getOtherCardWithSameValue(Card card) {
+        for (int i = 0; i < cardsList.length; i++) {
+            for (int j = 0; j < cardsList[i].length; j++) {
+                Card otherCard = cardsList[i][j];
+                if (otherCard != card && otherCard.getValue() == 1) {
+                    return otherCard;
+                }
             }
         }
-        
+            return null;
     }
+
+
 
   void MessageWinner() throws IOException{
        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -268,7 +288,5 @@ public class GameController implements Initializable {
             App.setRoot("mainScreen");
         }    
   }
-
-
-
+  
 }
